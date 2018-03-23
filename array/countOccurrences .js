@@ -7,4 +7,4 @@
 // arr： 数组本身
 
 const countOccurrences = (arr, val) => arr.reduce((a, v) => v === val ? a + 1 : a, 0)
-console.log(countOccurrences([0, 0, 0, 1, 2], 2));
+console.log(countOccurrences([0, 0, 0, 1, 2], 0));
