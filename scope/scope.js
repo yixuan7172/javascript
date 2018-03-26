@@ -45,7 +45,7 @@ function out2() {
     var value = 2
 
     function f() {
-        console.log(value);
+        console.log(value); //2
     }
     f()
 }

@@ -26,6 +26,7 @@ for (let i = 0; i < 5; i++) {
 }
 
 //***************** 4 ***************
+// for循环覆盖
 const output = i => setTimeout(() => console.log(i), 1000)
 for (var i = 0; i < 5; i++) {
     output(i) //传过去的i被复制了
