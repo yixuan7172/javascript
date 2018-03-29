@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="clearfix">
+    <div class="floated">float a</div>
+    <div class="floated">float b</div>
+    <div class="floated">float c</div>
+</div>
+<!--
+        .clearfix::after 定义伪元素。
+        content: '' 允许伪元素影响布局。
+        clear: both 指示元素的左侧、右侧或两侧不能与同一块格式上下文中较早浮动的元素相邻。
+
+            为了使此代码段正常工作，您需要确保容器中没有非浮动子级，
+        并且clearfixed容器之前没有高浮动，但格式上下文相同(例如浮动列)。
+-->
+</body>
+</html>
+<style>
+    .clearfix::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    .floated {
+        float: left;
+    }
+</style>

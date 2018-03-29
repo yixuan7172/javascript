@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="dd1">
+    <div class="dd2"></div>
+</div>
+<!--
+    position: relative 在父元素上为子元素建立笛卡尔定位上下文。
+    z-index: 1 建立新的堆叠内容。
+    position: relative 在子级上建立伪元素的定位上下文。
+    ::after 定义伪元素。
+    position: absolute 从文档流中取出伪元素，并将其相对于父元素定位。
+    width: 100% 和height: 100% 调整伪元素的大小以填充其父元素的尺寸，使其大小相等。
+    background: inherit 使伪元素继承在元素上指定的线性渐变。
+    top: 0.5rem 将伪元素从其父元素稍微向下偏移。
+    filter: blur(0.4rem) 将模糊伪元素以在下面创建阴影的外观。
+    opacity: 0.7 使伪元素部分透明。
+    z-index: -1 将伪元素定位在父元素后面。
+-->
+</body>
+</html>
+<style>
+    .dd1 {
+        position: relative;
+        z-index: 1;
+    }
+
+    .dd2 {
+        position: relative;
+        width: 10rem;
+        height: 10rem;
+        background: linear-gradient(95deg, #ffaa00, #00bb00);
+    }
+
+    .dd2::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: inherit;
+        top: .5rem;
+        filter: blur(.2rem);
+        opacity: .5;
+        z-index: -1;
+    }
+</style>

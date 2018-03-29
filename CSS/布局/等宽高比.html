@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="ww"></div>
+<!--
+    给定可变宽度的元素(即，其宽度与高度的比率保持恒定)。
+    调整浏览器窗口的大小以查看元素的比例保持不变。
+
+        padding-top 在 .ww 上::before 伪元素使元素的高度等于其宽度的百分比。
+    100% 因此表示元素的高度始终为100% 的宽度，创建一个响应正方形。
+
+    此方法还允许内容正常放置在元素内部。
+-->
+</body>
+</html>
+<style>
+    .ww {
+        width: 50%;
+        background-color: #333;
+    }
+
+    .ww::before {
+        content: '';
+        padding-top: 100%;
+        float: left;
+    }
+    .ww::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+</style>
