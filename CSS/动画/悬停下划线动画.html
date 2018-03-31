@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p class="pp">Hover this text to see the effect!</p>
+<!--
+    display: inline-block 使块pp成为 一inline-block 以防止下划线跨越整个父级宽度而不仅仅是内容(文本)。
+    position: relative 在元素上为伪元素建立笛卡尔定位上下文。
+    ::after 定义伪元素。
+    position: absolute 从文档流中取出伪元素，并将其相对于父元素定位。
+    width: 100% 确保伪元素跨越文本块的整个宽度。
+    transform: scaleX(0) 最初将伪元素缩放为0，使其没有宽度且不可见。
+    bottom: 0 和left: 0 将其放置在块的左下方。
+    transition: transform 0.25s ease-out 意味着transform 变化将通过ease-out 时间功能在0.25秒内过渡。
+    transform-origin: bottom right 表示变换锚点位于块的右下方。
+    :hover::after 然后使用scaleX(1) 将宽度转换为100％，然后将transform-origin 更改为bottom left 以便定位点反转，从而允许其在悬停时转换到另一个方向。
+-->
+</body>
+</html>
+<style>
+    .pp {
+        display: inline-block;
+        position: relative;
+        color: #00aaff;
+    }
+
+    .pp::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #0087ca;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+    }
+
+    .pp:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+</style>

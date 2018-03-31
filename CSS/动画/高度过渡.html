@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="dd1">
+    Hover me to see a height transition.
+    <div class="dd2">content111111111111111111111111111111111111111111111111111111</div>
+</div>
+<!--
+    transition: max-height: 0.5s cubic-bezier(...)指定更改为max-height应使用ease-out-quint定时函数。
+    overflow: hidden防止隐藏元素的内容溢出其容器。
+    max-height: 0指定元素最初没有高度。
+    .target:hover > .el指定当父项悬停在上方时，以子项为目标.el并使用--max-height由JavaScript定义的变量。
+
+    el.scrollHeight是包含溢出的元素的高度，它将根据元素的内容动态更改。
+    el.style.setProperty(...)设置--max-height用于指定max-height目标悬停在其上的元素的，允许它从0平滑过渡到auto。
+
+    从转换元素的高度0到auto当其高度未知时。
+-->
+</body>
+</html>
+<style>
+    .dd2 {
+        transition: max-height .5s;
+        overflow: hidden;
+        max-height: 0;
+    }
+
+    .dd1:hover > .dd2 {
+        max-height: var(--max-height);
+    }
+</style>
+<script>
+    let el = document.querySelector('.dd2')
+    let height = el.scrollHeight
+    el.style.setProperty('--max-height', height + 'px')
+</script>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="dd1">
+    <span>Item 1</span>
+    <span>Item 2</span>
+    <span>Item 3</span>
+    <span>Item 4</span>
+    <span>Item 5</span>
+    <span>Item 6</span>
+</div>
+<!--
+transition: opacity 0.2s 指定不透明度的更改将在0.2秒内转换。
+.sibling-fade:hover span:not(:hover) 指定当父项被徘徊时，选择当前没有被徘徊的任何span子项并将其不透明度更改为0.5 。 。
+-->
+</body>
+</html>
+<style>
+    span {
+        padding: 0 1rem;
+        transition: opacity .2s;
+    }
+
+    .dd1:hover > span:not(:hover) {
+        opacity: .5;
+    }
+</style>

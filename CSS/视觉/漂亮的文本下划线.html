@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p class="pretty-text-underline">Pretty text underline without clipping descending letters.</p>
+<!--
+    text-shadow: ... 具有4个偏移值，覆盖4x 4 px区域，以确保下划线具有“厚”阴影，该阴影覆盖后代裁剪下划线的线。使用与背景匹配的颜色。对于较大字体，请使用较大字体px 大小。
+    background-image: linear-gradient(...) 使用当前文本颜色(currentColor )创建90度渐变 .
+    background-* 属性将渐变的大小设置为1x1px，并沿x轴重复。
+    ::selection 伪选择器确保文本阴影不会干扰文本选择。
+
+    比...更好的选择text-decoration: underline 其中后代不裁剪下划线。
+    本机实现为text-decoration-skip-ink: auto 但它对下划线的控制较少。
+-->
+</body>
+</html>
+<style>
+    .pretty-text-underline {
+        font-family: Arial, sans-serif;
+        display: inline;
+        font-size: 18px;
+        text-shadow: 1px 1px 0 #f5f6f9, -1px 1px 0 #f5f6f9, -1px -1px 0 #f5f6f9, 1px -1px 0 #f5f6f9;
+        background-image: linear-gradient(90deg, currentColor 100%, transparent 100%);
+        background-position: 0 0.98em;
+        background-repeat: repeat-x;
+        background-size: 1px 1px;
+    }
+
+    .pretty-text-underline::-moz-selection {
+        background-color: rgba(0, 150, 255, 0.3);
+        text-shadow: none;
+    }
+
+    .pretty-text-underline::selection {
+        background-color: rgba(0, 150, 255, 0.3);
+        text-shadow: none;
+    }
+</style>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="dd1">
+    <div class="dd2">
+        Content to be scrolled
+        Content to be scrolled
+        Content to be scrolled
+        Content to be scrolled
+        Content to be scrolled
+        Content to be scrolled
+        Content to be scrolled
+        Content to be scrolled
+    </div>
+</div>
+<!--
+    position: relative 在父级上为伪元素建立笛卡尔定位上下文。
+    ::after 定义伪元素。
+    background-image: linear-gradient(...) 添加从透明渐变为白色(从上到下)的线性渐变。
+    position: absolute 从文档流中取出伪元素，并将其相对于父元素定位。
+    width: 240px 匹配滚动元素的大小(它是具有伪元素的父元素的子元素)。
+    height: 25px 是衰落梯度伪元素的高度，应当保持相对较小。
+    bottom: 0 将伪元素定位在父元素的底部。
+    pointer-events: none 指定伪元素不能是鼠标事件的目标，允许其后面的文本仍然是可选/交互式的。
+-->
+</body>
+</html>
+<style>
+    .dd1{
+        position: relative;
+    }
+    .dd1::before{
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 240px;
+        height: 25px;
+        background: linear-gradient(rgba(255,255,255,.1),white);
+        pointer-events: none;
+    }
+    .dd2{
+        overflow-y: scroll;
+        background: white;
+        width: 240px;
+        height: 200px;
+        padding: 15px 0;
+        line-height: 2;
+        text-align: center;
+    }
+</style>

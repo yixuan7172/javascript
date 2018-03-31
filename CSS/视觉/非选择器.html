@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul class="uu">
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+    <li>Four</li>
+    <li>Five</li>
+</ul>
+<!--li:not(:last-child) 指定样式应应用于所有li 元素除外:last-child 。-->
+<!--这:not psuedo选择器用于设置一组元素的样式，而保留最后一个(或指定的)元素未设置样式。-->
+</body>
+</html>
+<style>
+    .uu{
+        display: flex;
+    }
+    li{
+        list-style-type: none;
+        margin: 0;
+        padding: 0 0.75rem;
+    }
+    li:not(:last-child){
+        border-right: 2px solid #00bb00;
+    }
+</style>

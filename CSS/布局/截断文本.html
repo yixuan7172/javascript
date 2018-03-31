@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p class="truncate-text">If I exceed one line's width, I will be truncated.</p>
+<!--overflow: hidden 防止文本溢出其尺寸(对于块，100 %宽度和自动高度)。-->
+<!--white-space: nowrap 防止文本高度超过一行。-->
+<!--text-overflow: ellipsis 使其在文本超出其维度时以省略号结尾。-->
+<!--width: 200px; 确保元素具有维度，以知道何时获取省略号-->
+</body>
+</html>
+<style>
+.truncate-text{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 200px;
+}
+</style>

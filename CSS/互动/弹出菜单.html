@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="dd1">
+    <div class="dd2">
+        Popout menu
+    </div>
+</div>
+<!--
+    position: relative 在参考父项上为其子项建立笛卡尔定位上下文。
+    position: absolute 将弹出式菜单从文档流中移出，并将其与父级相关。
+    left: 100% 将弹出式菜单的左侧宽度从其父宽度的left: 100%移开。
+    visibility: hidden 最初隐藏弹出菜单并允许转换(与display: none ) .
+    .reference:hover > .popout-menu 意味着当.reference 悬停在上方时，
+    选择具有.popout-menu类的直接子项并将它们的 visibility 更改为visible ，这将显示弹出窗口。
+-->
+</body>
+</html>
+<style>
+    .dd1 {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background-color: #cccccc;
+    }
+
+    .dd2 {
+        position: absolute;
+        visibility: hidden;
+        left: 100%;
+    }
+
+    .dd1:hover > .dd2 {
+        visibility: visible;
+    }
+</style>

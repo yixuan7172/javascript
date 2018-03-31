@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="shape-separator"></div>
+<!--position: relative 在元素上为伪元素建立笛卡尔定位上下文。-->
+<!--::after 定义伪元素。-->
+<!--background-image: url(...) 添加SVG形状( base64格式的24 x24同级变淡形)作为伪元素的背景图像，默认情况下重复。它必须与要分隔的块颜色相同。-->
+<!--position: absolute 从文档流中取出伪元素，并将其相对于父元素定位。-->
+<!--width: 100% 确保元素拉伸其父元素的整个宽度。-->
+<!--height: 24px 与形状高度相同。-->
+<!--bottom: 0 将伪元素定位在父元素的底部。-->
+</body>
+</html>
+<style>
+    .shape-separator {
+        position: relative;
+        height: 48px;
+        background: #333;
+    }
+
+    .shape-separator::after {
+        content: '';
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS1taXRlcmxpbWl0PSIxLjQxNCI+PHBhdGggZD0iTTEyIDEybDEyIDEySDBsMTItMTJ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+);
+        position: absolute;
+        width: 100%;
+        height: 24px;
+        bottom: 0;
+    }
+</style>

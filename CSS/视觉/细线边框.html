@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="dd">text</div>
+<!--
+    box-shadow ，当仅使用扩展时，添加可以使用子像素*的伪边框。
+        使用@media (min-resolution: ...) 为了检查器件像素比(1dppx 等于96 DPI )，
+    将box-shadow的分布设置为1 / dppx 。 。
+
+    为元素提供一个边框，宽度等于1个本地设备像素，可以显得非常清晰和清晰。
+-->
+</body>
+</html>
+<style>
+    .dd {
+        box-shadow: 0 0 0 1px;
+    }
+
+    @media (min-resolution: 2dppx) {
+        .dd {
+            box-shadow: 0 0 0 .5px;
+        }
+    }
+
+    @media (min-resolution: 3dppx) {
+        .dd {
+            box-shadow: 0 0 0 .3333px;
+        }
+    }
+
+    @media (min-resolution: 4dppx) {
+        .dd {
+            box-shadow: 0 0 0 .25px;
+        }
+    }
+</style>

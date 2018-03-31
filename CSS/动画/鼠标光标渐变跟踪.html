@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button class="bb">
+    <span>Hover me</span>
+</button>
+<!--
+    注意！
+    如果元素的父级具有定位上下文(position: relative )，您还需要减去它的偏移量。
+    var x = e.pageX - btn.offsetLeft - btn.offsetParent.offsetLeft
+    var y = e.pageY - btn.offsetTop - btn.offsetParent.offsetTop
+-->
+</body>
+</html>
+<style>
+    .bb {
+        position: relative;
+        background: #ffaa00;
+        padding: .5rem 1rem;
+        font-size: 1.5rem;
+        border: none;
+        color: white;
+        cursor: pointer;
+        outline: none;
+        overflow: hidden;
+    }
+
+    .bb > span {
+        position: relative;
+    }
+
+    .bb::before {
+        --size: 0;
+        content: '';
+        position: absolute;
+        left: var(--x);
+        top: var(--y);
+        width: var(--size);
+        height: var(--size);
+        background: radial-gradient(circle closest-side, #000, transparent);
+        transform: translate(-50%, -50%);
+        transition: width .2s ease, height .2s ease;
+    }
+
+    .bb:hover::before {
+        --size: 200px;
+    }
+</style>
+<script>
+    let bb = document.querySelector('.bb')
+    bb.onmousemove = function (e) {
+        let x = e.pageX - bb.offsetLeft
+        let y = e.pageY - bb.offsetTop
+        bb.style.setProperty('--x', x + 'px')
+        bb.style.setProperty('--y', y + 'px')
+    }
+</script>
